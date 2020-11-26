@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Testing pipeline
 
 on: [push, pull_request]
 
@@ -13,5 +13,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm ci
-    - run: npm test
+    - name: Clean install
+      run: npm ci
+    - name: Testing process
+      run: npm test
